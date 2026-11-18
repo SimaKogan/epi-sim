@@ -29,7 +29,7 @@ export default function StatCards({ frame, t }) {
       <div className="kpis">
         <div className="kpi"><span>{t('rt')}</span><b className={st && st.rt != null ? (st.rt > 1 ? 'bad' : 'good') : ''}>{st && st.rt != null ? st.rt.toFixed(2) : '—'}</b></div>
         <div className="kpi"><span>{t('peak')}</span><b>{st ? st.peak.toLocaleString() : '—'}</b><small>{st ? t('peakDay', Math.round(st.peakDay)) : ''}</small></div>
-        <div className="kpi"><span>{t('everInfected')}</span><b>{st ? pct(st.everInfected) : '—'}</b></div>
+        <div className="kpi"><span>{t('everInfected')}</span><b>{st ? `${(st.everInfected / pop).toFixed(1)}×` : '—'}</b><small>{t('inclReinf')}</small></div>
         <div className="kpi"><span>{t('vaccinatedPct')}</span><b>{st ? pct(st.vaccinated) : '—'}</b></div>
       </div>
     </div>
